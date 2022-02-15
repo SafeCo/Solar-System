@@ -1,0 +1,365 @@
+/* Overall CSS */
+
+:root {
+  --planetdistance: 100px;
+  --outheight: 2.75vw;
+  --outwidth: 2.75vw;
+  --planetw: 1vw;
+  --planettranslate: 2.75vw;
+
+  --planetspeed: 1;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color:black;
+  background-image:
+  radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+  radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+  radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+  radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+    
+}
+
+/*Grid*/
+.container{
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  height: 100vh;
+  width: 100vw;
+}
+
+/*Side descriptors*/
+.item {
+  color: #4c6c8c;
+  font-family: sans-serif;
+  line-height: 150%;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+}
+
+.one{
+  grid-column: 1/1;
+  
+}
+.two{
+  grid-column: 3/4;
+}
+
+
+h1 {
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  border-radius: 10px;
+  font-family: sans-serif;
+  text-align: center;
+  color: #4c6c8c;
+  background-color: #0f304a;
+  box-shadow: 
+  1px 1px 15px 1px #0f304a;
+}
+
+.card{
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  border-radius: 10px;
+  font-family: sans-serif;
+  color: #4c6c8c;
+  background-color: #0f304a;
+  box-shadow: 
+  1px 1px 15px 1px #0f304a;
+}
+
+/*accordion*/
+
+.accordion{
+  margin-top: 1vw;
+  
+  margin-bottom: 0.2vw;
+  border-radius: 10px;
+  font-family: sans-serif;
+  text-align: center;
+  color: #4c6c8c;
+  background-color: #0f304a;
+  box-shadow: 
+  1px 1px 15px 1px #0f304a;
+  display: flex;
+  justify-content: center;
+}
+
+.active, .accordion:hover{
+  background-color: #091e2e;
+  cursor:pointer;
+}
+
+.panel{
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  border-radius: 10px;
+  background-color: #0f304a;
+  color: #4c6c8c;
+
+}
+
+/*Button Styles*/
+#speedButton{
+  display: flex;
+  justify-content: space-between;
+}
+button {
+  margin-top: 0.5vw;
+  margin-bottom: 0.5vw;
+  margin-right: 0.5vw;
+  margin-left: 0.5vw;
+  box-shadow:inset 0px 0px 15px 3px #23395e;
+  background:linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+  background-color:#2e466e;
+  border-radius:17px;
+  border:1px solid #1f2f47;
+  display:inline-block;
+  cursor:pointer;
+  color:#0f304a;
+  font-family: sans-serif;
+  font-size:15px;
+  padding:6px 13px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #263666;
+}
+button:hover {
+  background:linear-gradient(to bottom, #415989 5%, #2e466e 100%);
+  background-color:#415989;
+}
+button:active {
+  top:1px;
+}
+
+
+/* Planet CSS */
+
+.solar{
+position: relative;
+display: flex;
+  justify-content: center;
+  align-items: center;
+ grid-column: 2/3;
+}
+
+.sun {
+  
+  width: 2vw;
+  height: 2vw;
+  position:absolute;
+  background-color: orange;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px 2px yellow;
+ 
+}
+
+.selector{
+  border-radius: 50%;
+  border: solid white 1px;
+  height: calc(var(--planetw)*2);
+  width: calc(var(--planetw)*2);
+  box-shadow: 0px 0px 10px 2px white;
+}
+
+
+/*General*/ 
+.planet {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.outline {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  border: dotted white 1px;
+}
+
+/*Specific planet outline CSS*/
+.me{
+  height: calc(var(--outheight)*2);
+  width: calc(var(--outwidth)*2);
+}
+
+.v{
+  height: calc(var(--outheight)*4);
+  width: calc(var(--outwidth)*4);
+}
+.e{
+  height: calc(var(--outheight)*6);
+  width: calc(var(--outwidth)*6);
+}
+.ma{
+  height: calc(var(--outheight)*8);
+  width: calc(var(--outwidth)*8);
+}
+.j{
+  height: calc(var(--outheight)*10);
+  width: calc(var(--outwidth)*10);
+}
+.s{
+  height: calc(var(--outheight)*12);
+  width: calc(var(--outwidth)*12);
+}
+.u{
+  height: calc(var(--outheight)*14);
+  width: calc(var(--outwidth)*14);
+}
+.n{
+  height: calc(var(--outheight)*16);
+  width: calc(var(--outwidth)*16);
+}
+
+/* Specific planet CSS */
+.mercury {
+  height: var(--planetw);
+  width: var(--planetw);
+  top: 50%;
+  left: 50%;
+  background-color: grey;
+  animation-name: orbit0;
+  animation-duration: calc(88s/var(--planetspeed));
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.venus {
+  height: var(--planetw);
+  width: var(--planetw);
+  top: 50%;
+  left: 50%;
+  background-color: indianred;
+  animation-name: orbit1;
+  animation-duration: calc(225s/var(--planetspeed));
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+ 
+}
+
+.earth {
+  height: var(--planetw);
+  width: var(--planetw);
+  top: 50%;
+  left: 50%;
+  background-color: blue;
+  animation-name: orbit2;
+  animation-duration: calc(365s/var(--planetspeed));
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+ 
+}
+.mars {
+  height: var(--planetw);
+  width: var(--planetw);
+  top: 50%;
+  left: 50%;
+  background-color: brown;
+  animation-name: orbit3;
+  animation-duration: calc(687s/var(--planetspeed));
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.jupiter {
+  height: var(--planetw);
+  width: var(--planetw);
+  top: 50%;
+  left: 50%;
+  background-color: orange;
+  animation-name: orbit4;
+  animation-duration: calc(4333s/var(--planetspeed));
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.saturn {
+  height: var(--planetw);
+  width: var(--planetw);
+  top: 50%;
+  left: 50%;
+  background-color: darkgoldenrod;
+  animation-name: orbit5;
+  animation-duration: calc(10759s/var(--planetspeed));
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.uranus {
+  height: var(--planetw);
+  width: var(--planetw);
+  top: 50%;
+  left: 50%;
+  background-color: aquamarine;
+  animation-name: orbit6;
+  animation-duration: calc(30687s/var(--planetspeed));
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.neptune {
+  height: var(--planetw);
+  width:var(--planetw);
+  top: 50%;
+  left: 50%;
+  background-color: blue;
+  animation-name: orbit7;
+  animation-duration: calc(60190s/var(--planetspeed));
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+
+
+/* Orbit Animation */
+@keyframes orbit0 {
+  from{transform:translate(-50%, -50%)rotate(0deg)translateX(var(--planettranslate))rotate(360deg);}
+  to{transform:translate(-50%, -50%)rotate(360deg)translateX(var(--planettranslate))rotate(-360deg);}
+}
+
+@keyframes orbit1 {
+  from{transform:translate(-50%, -50%)rotate(0deg)translateX(calc(var(--planettranslate)*-2))rotate(360deg);}
+  to{transform:translate(-50%, -50%)rotate(360deg)translateX(calc(var(--planettranslate)*-2))rotate(-360deg);}
+}
+
+@keyframes orbit2 {
+  from{transform:translate(-50%, -50%)rotate(0deg)translateX(calc(var(--planettranslate)*3))rotate(360deg);}
+  to{transform:translate(-50%, -50%)rotate(360deg)translateX(calc(var(--planettranslate)*3))rotate(-360deg);}
+}
+
+@keyframes orbit3 {
+  from{transform:translate(-50%, -50%)rotate(0deg)translateX(calc(var(--planettranslate)*-4))rotate(360deg);}
+  to{transform:translate(-50%, -50%)rotate(360deg)translateX(calc(var(--planettranslate)*-4))rotate(-360deg);}
+}
+
+@keyframes orbit4 {
+  from{transform:translate(-50%, -50%)rotate(0deg)translateX(calc(var(--planettranslate)*5))rotate(360deg);}
+  to{transform:translate(-50%, -50%)rotate(360deg)translateX(calc(var(--planettranslate)*5))rotate(-360deg);}
+}
+
+@keyframes orbit5 {
+  from{transform:translate(-50%, -50%)rotate(0deg)translateX(calc(var(--planettranslate)*-6))rotate(360deg);}
+  to{transform:translate(-50%, -50%)rotate(360deg)translateX(calc(var(--planettranslate)*-6))rotate(-360deg);}
+}
+
+@keyframes orbit6 {
+  from{transform:translate(-50%, -50%)rotate(0deg)translateX(calc(var(--planettranslate)*7))rotate(360deg);}
+  to{transform:translate(-50%, -50%)rotate(360deg)translateX(calc(var(--planettranslate)*7))rotate(-360deg);}
+}
+
+@keyframes orbit7 {
+  from{transform:translate(-50%, -50%)rotate(0deg)translateX(calc(var(--planettranslate)*-8))rotate(360deg);}
+  to{transform:translate(-50%, -50%)rotate(360deg)translateX(calc(var(--planettranslate)*-8))rotate(-360deg);}
+}
+
+
+
